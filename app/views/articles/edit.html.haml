@@ -1,5 +1,6 @@
-%h1 New Article
-= form_for :article, url: articles_path do |f|
+%h1 Editing article
+
+= form_for :article, url: article_path(@article), method: :patch do |f|
   - if @article.errors.any?
     #error_explanation
       %h2
@@ -10,12 +11,12 @@
           %li= msg
   %p
     = f.label :title
+    %br
     = f.text_field :title
-
   %p
     = f.label :text
+    %br 
     = f.text_area :text
-
   %p
     = f.submit
 
